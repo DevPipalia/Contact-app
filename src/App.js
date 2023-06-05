@@ -7,7 +7,7 @@ import Add_user from "./Pages/Add_user";
 function App() {
   return (
     <div className="App">
-     hello
+     
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>

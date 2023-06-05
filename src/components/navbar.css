@@ -1,0 +1,14 @@
+.nav-bar{
+    display: flex;
+    background-color: powderblue;
+    gap: 84.5%;
+}
+
+
+.link1,.link2{
+    text-decoration: none;
+}
+.link1{
+    padding-left: 10px;
+}
+
