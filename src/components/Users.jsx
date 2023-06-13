@@ -2,6 +2,7 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { db } from "../firebase-config";
 import {collection,getDocs} from "firebase/firestore"
+import "./users.css"
 
 function User_display(){
     const[users,setUsers]=useState([]);
@@ -17,17 +18,31 @@ function User_display(){
     },[])
     return(
         <>
+        <table className="head-table">
+            <tr>
+                <td className="name">Name</td>
+                <td className="age">Age</td>
+                <td className="email">Email</td>
+                <td className="contact">Contact</td>
+            </tr>
+        </table>
            {users.map((user)=>{
             return(
                 <div>
-                    <h1>Name:{user.name}</h1>
-                    <h1>Age:{user.age}</h1>
-                    <h1>Email:{user.email}</h1>
-                    <h1>Contact:{user.contact}</h1>
+                    <table>
+
+                        <tr>
+                            <td className="name">{user.name}</td>
+                            <td className="age">{user.age}</td>
+                            <td className="email">{user.email}</td>
+                            <td className="contact">{user.contact}</td>
+                        </tr>
+                    </table>
+                    
                 </div>
             )
            })}
-            users display;
+            
         </>
     )
 }

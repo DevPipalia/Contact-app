@@ -1,0 +1,23 @@
+table{
+    margin: auto;
+    border: 2px solid black;
+    width: 600px;
+}
+
+td{
+    /* border: 2px solid black; */
+    width: 60px;
+   text-align: center;
+    
+}
+
+
+
+.name,.age{
+    width: 120px;
+}
+
+.email,.contact{
+    width: 180px;
+}
+
