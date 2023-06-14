@@ -4,6 +4,8 @@ import { db } from "../firebase-config";
 import {collection,getDocs,deleteDoc,doc} from "firebase/firestore"
 import "./users.css"
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function User_display(){
     const[users,setUsers]=useState([]);
@@ -12,8 +14,21 @@ function User_display(){
     const deleteUser=async(id)=>{
         const userDoc=doc(db,"users",id);
         await deleteDoc(userDoc);
-        window.location.reload(false);
-
+        toast.error(' User Deleted! ', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            setTimeout(function(){
+                window.location.reload();
+             }, 5000);
+             
+        
     }
 
 
@@ -47,6 +62,18 @@ function User_display(){
                             <td className="email"> {user.email}</td>
                             <td className="contact">{user.contact}</td>
                             <Link to="/"><td className="delete-btn" onClick={()=>{ deleteUser(user.id)}}> <button>Del</button></td></Link>
+                            <ToastContainer
+                                position="top-center"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="colored"
+                                />
                         </tr>
 
                         </tbody>
