@@ -2,6 +2,7 @@ import React from "react";
 import { collection, addDoc,doc } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../firebase-config";
+import { Link } from "react-router-dom";
 
 function NewUser(){
     const UsersCollectionRef=collection(db,"users");
@@ -20,7 +21,7 @@ function NewUser(){
             <input placeholder="Age.." type="number" onChange={(event)=> {setAge(event.target.value);}}/>
             <input placeholder="Email.." type="email" onChange={(event)=> {setEmail(event.target.value);}}/>
             <input placeholder="Contact..." type="number" onChange={(event)=> {setContact(event.target.value);}}/>
-            <button onClick={createUser}>Add User</button>
+            <Link to="/"><button onClick={createUser}>Add User</button></Link>
         </>
     )
 }
