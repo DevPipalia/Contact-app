@@ -13,7 +13,7 @@ function User_display(){
         const userDoc=doc(db,"users",id);
         await deleteDoc(userDoc);
         window.location.reload(false);
-        
+
     }
 
 
@@ -26,25 +26,25 @@ function User_display(){
         getUsers();
     },[])
     return(
-        <>
+        <div className="user-body">
         <table className="head-table">
             <tr>
-                <td className="name">Name</td>
-                <td className="age">Age</td>
-                <td className="email">Email</td>
-                <td className="contact">Contact</td>
+                <td className="name head-name">NAME</td>
+                <td className="age">AGE</td>
+                <td className="email">EMAIL</td>
+                <td className="contact">CONTACT</td>
                 <td className="hid"></td>
             </tr>
         </table>
            {users.map((user)=>{
             return(
                 <div>
-                    <table>
+                    <table className="body-table">
                         <tbody>
                         <tr>
                             <td className="name">{user.name}</td>
-                            <td className="age">{user.age}</td>
-                            <td className="email">{user.email}</td>
+                            <td className="age"> {user.age}</td>
+                            <td className="email"> {user.email}</td>
                             <td className="contact">{user.contact}</td>
                             <Link to="/"><td className="delete-btn" onClick={()=>{ deleteUser(user.id)}}> <button>Del</button></td></Link>
                         </tr>
@@ -56,7 +56,7 @@ function User_display(){
             )
            })}
             
-        </>
+        </div>
     )
 }
 
