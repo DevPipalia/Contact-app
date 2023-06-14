@@ -13,6 +13,7 @@ function User_display(){
         const userDoc=doc(db,"users",id);
         await deleteDoc(userDoc);
         window.location.reload(false);
+        
     }
 
 
