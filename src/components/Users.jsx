@@ -14,7 +14,7 @@ function User_display(){
     const deleteUser=async(id)=>{
         const userDoc=doc(db,"users",id);
         await deleteDoc(userDoc);
-        toast.error(' User Deleted! ', {
+        toast.error(' Deleting User ', {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -61,7 +61,7 @@ function User_display(){
                             <td className="age"> {user.age}</td>
                             <td className="email"> {user.email}</td>
                             <td className="contact">{user.contact}</td>
-                            <Link to="/"><td className="delete-btn" onClick={()=>{ deleteUser(user.id)}}> <button>Del</button></td></Link>
+                            <td className="delete-btn" onClick={()=>{ deleteUser(user.id)}}> <button>Del</button></td>
                             <ToastContainer
                                 position="top-center"
                                 autoClose={5000}

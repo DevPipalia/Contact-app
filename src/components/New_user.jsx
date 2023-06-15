@@ -35,7 +35,7 @@ function NewUser(){
             <input placeholder="Age.." type="number" onChange={(event)=> {setAge(event.target.value);}}/>
             <input placeholder="Email.." type="email" onChange={(event)=> {setEmail(event.target.value);}}/>
             <input placeholder="Contact..." type="number" onChange={(event)=> {setContact(event.target.value);}}/>
-            <Link to="/"><button onClick={createUser}>Add User</button></Link>
+            <Link to="/home"><button onClick={createUser}>Add User</button></Link>
             <ToastContainer
                                 position="top-center"
                                 autoClose={5000}
