@@ -12,6 +12,9 @@ import { signOut } from "firebase/auth";
 function User_display(){
     const[users,setUsers]=useState([]);
     const UsersCollectionRef=collection(db,"users");
+    const current=auth.currentUser
+
+    
 
     const deleteUser=async(id)=>{
         const userDoc=doc(db,"users",id);
@@ -42,18 +45,18 @@ function User_display(){
         }
         getUsers();
 
-        function handleClick(){
-            signOut(auth).then(()=>{
-                console.log("signedOut")
-            }).catch((error) => {
-                console.log(error);
-              });
-        }
-
     },[])
+
+    function handleClick(){
+        signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
     return(
         <div className="user-body">
-        <button className="sign-out">SignOut</button>
+        <button className="sign-out" onClick={handleClick}>SignOut</button>
         <table className="head-table">
             <tr>
                 <td className="name head-name">NAME</td>
@@ -94,7 +97,7 @@ function User_display(){
                 </div>
             )
            })}
-            
+            <h1>Hello {current?.email}  </h1>
         </div>
     )
 }
