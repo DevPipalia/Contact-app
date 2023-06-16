@@ -6,6 +6,8 @@ import "./users.css"
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { auth } from "../firebase-config";
+import { signOut } from "firebase/auth";
 
 function User_display(){
     const[users,setUsers]=useState([]);
@@ -39,9 +41,19 @@ function User_display(){
 
         }
         getUsers();
+
+        function handleClick(){
+            signOut(auth).then(()=>{
+                console.log("signedOut")
+            }).catch((error) => {
+                console.log(error);
+              });
+        }
+
     },[])
     return(
         <div className="user-body">
+        <button className="sign-out">SignOut</button>
         <table className="head-table">
             <tr>
                 <td className="name head-name">NAME</td>

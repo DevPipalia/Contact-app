@@ -34,7 +34,10 @@ td{
     color: white;
 }
 
-
+.sign-out{
+    margin-left: 47%;
+    margin-bottom: 10px;
+}
 .head-table,.body-table{
     background-color: #fff;
     background-image: linear-gradient(60deg, #ff6596, #60bef8,#d88cff);
