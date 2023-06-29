@@ -13,7 +13,8 @@ function User_display(){
     const[users,setUsers]=useState([]);
     const UsersCollectionRef=collection(db,"users");
     const current=auth.currentUser
-
+    const position=current.email.indexOf("@");
+    const user_email=current.email.substring(0,position)
     
 
     const deleteUser=async(id)=>{
@@ -97,7 +98,7 @@ function User_display(){
                 </div>
             )
            })}
-            <h1>Hello {current?.email}  </h1>
+            <h1>Hello {current?user_email:"."}  </h1>
         </div>
     )
 }
