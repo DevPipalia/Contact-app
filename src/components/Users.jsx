@@ -91,7 +91,6 @@ function User_display(){
                                 theme="colored"
                                 />
                         </tr>
-
                         </tbody>
                     </table>
                     
